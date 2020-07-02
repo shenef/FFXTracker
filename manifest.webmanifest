@@ -1,7 +1,12 @@
 {
-  "short_name": "FFXTracker",
   "name": "FFX Speedrun Tracker",
+  "short_name": "FFXTracker",
   "description": "A Tracker for Items, Encounters, Fights etc for Final Fantasy X Speedruns",
+  "theme_color": "#00ffff",
+  "background_color": "#00ffff",
+  "display": "standalone",
+  "scope": ".",
+  "start_url": "index.html",
   "icons": [
     {
       "src": "icon.webp",
@@ -10,12 +15,8 @@
     },
     {
       "src": "icon-512.webp",
-      "type": "image/png",
+      "type": "image/webp",
       "sizes": "512x512"
     }
-  ],
-  "start_url": "?source=pwa",
-  "background_color": "#00ffff",
-  "display": "standalone",
-  "theme_color": "#00ffff"
+  ]
 }
