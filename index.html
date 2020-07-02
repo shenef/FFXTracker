@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+  <head>
+    <META NAME="AUTHOR" CONTENT="shenef#1269">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>FFX Tracker</title>
+    <link rel="shortcut icon" href="icon.webp" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <form id="FFXTracker">
+        <div class="container">
+          <div class="row">
+            <div class="col s12"> <!-- tabs -->
+              <ul class="tabs">
+                <li class="tab col s4"><a class="active white-text" href="#any">Any%</a></li>
+                <li class="tab col s4 hide-on-small-only"><a class="white-text" href="#NSG">No Sphere Grid</a></li>
+                <li class="tab col s4 hide-on-med-and-up"><a class="white-text" href="#NSG">NSG</a></li>
+                <li class="tab col s4"><a class="white-text" href="#nemesis">Nemesis</a></li>
+              </ul>
+            </div>
+
+            <div id="any" class="col s12">     <!-- any% -->
+              <br>
+              <section>
+                <h5>Items</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+                  <div class="input-field col s6 m4 l3 tooltipped" data-position="bottom" data-tooltip="[ALT+1]">
+                    <label for="anySpeedSphere">Speed Spheres: </label>
+                    <input id="anySpeedSphere" name="anySpeedSphere" type="number" min="0" value="0"/>
+                    <a href="javascript:document.getElementById('anySpeedSphere').value = parseInt(document.getElementById('anySpeedSphere').value)+1" accesskey="1"></a>
+                  </div>
+                  <div class="input-field col s6 m4 l3 tooltipped" data-position="bottom" data-tooltip="[ALT+2]">
+                    <label for="anyPowerSphere">Power Spheres: </label>
+                    <input id="anyPowerSphere" name="anyPowerSphere" type="number" min="0" value="0"/>
+                    <a href="javascript:document.getElementById('anyPowerSphere').value = parseInt(document.getElementById('anyPowerSphere').value)+1" accesskey="2"></a>
+                  </div>
+                  <div class="input-field col s6 m4 l3">
+                    <label for="anyFriendSphere">Friend Spheres: </label>
+                    <input id="anyFriendSphere" name="anyFriendSphere" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3">
+                    <label for="anyReturnSphere">Return Spheres: </label>
+                    <input id="anyReturnSphere" name="anyReturnSphere" type="number" min="0" value="0"/>
+                  </div>
+                </div>
+              </section>
+              <section>
+                <h5>Optional but recommended</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+                  <div class="col s6 m4 l3">
+                    <label for="anyKimahriSD">
+                      <input id="anyKimahriSD" name="anyKimahriSD" type="checkbox" value="false"/>
+                      <span>Kimahri Self Destruct:</span>
+                    </label>
+                  </div>
+                  <div class="input-field col s6 m4 l3">
+                    <label for="anyReturnSphere">XYZ: </label>
+                    <input id="anyReturnSphere" name="anyReturnSphere" type="number" min="0" value="0"/>
+                  </div>
+                </div>
+              </section>
+              <section>
+                <h5>Encounter:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="total">Total: </label>
+                    <input disabled id="anyEncounter" name="anytotal" type="number" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="DreamZanarkand">Dream Zanarkand: </label>
+                    <input disabled class="anyEncounter" id="DreamZanarkand" name="anyDreamZanarkand" type="number" value="3"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="BaajTemple">Baaj Temple: </label>
+                    <input disabled class="anyEncounter" id="BaajTemple" name="anyBaajTemple" type="number" value="4"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="DeepSeaWreckage">Deep Sea Wreckage: </label>
+                    <input class="anyEncounter" id="DeepSeaWreckage" name="anyDeepSeaWreckage" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Besaid">Besaid: </label>
+                    <input class="anyEncounter" id="Besaid" name="anyBesaid" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="BoatToKilika">Boat to Kilika: </label>
+                    <input disabled class="anyEncounter" id="BoatToKilika" name="anyBoatToKilika" type="number" value="2"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Kilika">Kilika: </label>
+                    <input class="anyEncounter" id="Kilika" name="anyKilika" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Luca">Luca: </label>
+                    <input disabled class="anyEncounter" id="Luca" name="anyLuca" type="number" value="7"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="MiihenHighroad">Mi'ihen Highroad: </label>
+                    <input class="anyEncounter" id="MiihenHighroad" name="anyMiihenHighroad" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="OldRoad">Old Road: </label>
+                    <input class="anyEncounter" id="OldRoad" name="anyOldRoad" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="MushroomRockRoad">Mushroom Rock Road: </label>
+                    <input class="anyEncounter" id="MushroomRockRoad" name="anyMushroomRockRoad" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="DjoseHighroad">Djose Highroad: </label>
+                    <input class="anyEncounter" id="DjoseHighroad" name="anyDjoseHighroad" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Moonflow">Moonflow: </label>
+                    <input class="anyEncounter" id="Moonflow" name="anyMoonflow" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Thunderplains">Thunderplains: </label>
+                    <input class="anyEncounter" id="Thunderplains" name="anyThunderplains" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="MacalaniaWoods">Macalania Woods: </label>
+                    <input class="anyEncounter" id="MacalaniaWoods" name="anyMacalaniaWoods" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="MacalaniaLakeTemple">Macalania Lake+Temple: </label>
+                    <input class="anyEncounter" id="MacalaniaLakeTemple" name="anyMacalaniaLakeTemple" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Bikanel">Bikanel: </label>
+                    <input class="anyEncounter" id="Bikanel" name="anyBikanel" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="HomeAirship">Home+Airship: </label>
+                    <input class="anyEncounter" id="HomeAirship" name="anyHomeAirship" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Bevelle">Bevelle: </label>
+                    <input class="anyEncounter" id="Bevelle" name="anyBevelle" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Bevelle">Calm Lands: </label>
+                    <input class="anyEncounter" id="CalmLands" name="anyCalmLands" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Bevelle">Mt. Gagazet: </label>
+                    <input class="anyEncounter" id="MtGagazet" name="anyMtGagazet" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Bevelle">Zanarkand: </label>
+                    <input class="anyEncounter" id="Zanarkand" name="anyZanarkand" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Bevelle">Sin: </label>
+                    <input class="anyEncounter" id="Sin" name="anySin" type="number" min="0" value="0" onchange="encounter('anyEncounter')"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="anyAmbushes">Ambushes: </label>
+                    <input id="anyAmbushes" name="anyAmbushes" type="number" min="0" value="0"/>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div id="NSG" class="col s12">     <!-- No Sphere Grid -->
+              <br>
+              <section>
+                <h5>Encounter:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="total">Total: </label>
+                    <input disabled id="NSGEncounter" name="NSGtotal" type="number" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="DreamZanarkand">Dream Zanarkand: </label>
+                    <input disabled class="NSGEncounter" id="DreamZanarkand" name="NSGDreamZanarkand" type="number" value="3"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="BaajTemple">Baaj Temple: </label>
+                    <input disabled class="NSGEncounter" id="BaajTemple" name="NSGBaajTemple" type="number" value="4"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="DeepSeaWreckage">Deep Sea Wreckage: </label>
+                    <input class="NSGEncounter" id="DeepSeaWreckage" name="NSGDeepSeaWreckage" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Besaid">Besaid: </label>
+                    <input class="NSGEncounter" id="Besaid" name="NSGBesaid" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="BoatToKilika">Boat to Kilika: </label>
+                    <input disabled class="NSGEncounter" id="BoatToKilika" name="NSGBoatToKilika" type="number" value="2"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Kilika">Kilika: </label>
+                    <input class="NSGEncounter" id="Kilika" name="NSGKilika" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Luca">Luca: </label>
+                    <input disabled class="NSGEncounter" id="Luca" name="NSGLuca" type="number" value="7"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="MiihenHighroad">Mi'ihen Highroad: </label>
+                    <input class="NSGEncounter" id="MiihenHighroad" name="NSGMiihenHighroad" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="OldRoad">Old Road: </label>
+                    <input class="NSGEncounter" id="OldRoad" name="NSGOldRoad" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="MushroomRockRoad">Mushroom Rock Road: </label>
+                    <input class="NSGEncounter" id="MushroomRockRoad" name="NSGMushroomRockRoad" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="DjoseHighroad">Djose Highroad: </label>
+                    <input class="NSGEncounter" id="DjoseHighroad" name="NSGDjoseHighroad" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Moonflow">Moonflow: </label>
+                    <input class="NSGEncounter" id="Moonflow" name="NSGMoonflow" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Thunderplains">Thunderplains: </label>
+                    <input class="NSGEncounter" id="Thunderplains" name="NSGThunderplains" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="MacalaniaWoods">Macalania Woods: </label>
+                    <input class="NSGEncounter" id="MacalaniaWoods" name="NSGMacalaniaWoods" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="MacalaniaLakeTemple">Macalania Lake+Temple: </label>
+                    <input class="NSGEncounter" id="MacalaniaLakeTemple" name="NSGMacalaniaLakeTemple" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Bikanel">Bikanel: </label>
+                    <input class="NSGEncounter" id="Bikanel" name="NSGBikanel" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="HomeAirship">Home+Airship: </label>
+                    <input class="NSGEncounter" id="HomeAirship" name="NSGHomeAirship" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Bevelle">Bevelle: </label>
+                    <input class="NSGEncounter" id="Bevelle" name="NSGBevelle" type="number" min="0" value="0" onchange="encounter('NSGEncounter')"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Ambushes">Ambushes: </label>
+                    <input id="Ambushes" name="NSGAmbushes" type="number" min="0" value="0"/>
+                  </div>
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>T2 Grenades:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="SilenceGrenade">Silence Grenade: </label>
+                    <input id="SilenceGrenade" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="SleepingPowder">Sleeping Powder: </label>
+                    <input id="SleepingPowder" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="SmokeBomb">Smoke Bomb: </label>
+                    <input id="SmokeBomb" type="number" min="0" value="0"/>
+                  </div>
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Damage Items:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Grenade">Grenade: </label>
+                    <input id="Grenade" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="PoisonFang">Poison Fang: </label>
+                    <input id="PoisonFang" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="ElectroMarble">Electro Marble: </label>
+                    <input id="ElectroMarble" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="LightningMarble">Lightning Marble: </label>
+                    <input id="LightningMarble" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="ArcticWind">Arctic Wind: </label>
+                    <input id="ArcticWind" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="FishScale">Fish Scale: </label>
+                    <input id="FishScale" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="WaterGem">Water Gem: </label>
+                    <input id="WaterGem" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="BombCore">Bomb Core: </label>
+                    <input id="BombCore" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="FireGem">Fire Gem: </label>
+                    <input id="FireGem" type="number" min="0" value="0"/>
+                  </div>
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Support Items:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="LunarCurtain">Lunar Curtain: </label>
+                    <input id="LunarCurtain" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="LightCurtain">Light Curtain: </label>
+                    <input id="LightCurtain" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="ChocoboFeather">Chocobo Feather: </label>
+                    <input id="ChocoboFeather" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="PetrifyGrenade">Petrify Grenade: </label>
+                    <input id="PetrifyGrenade" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="FarplaneShadow">Farplane Shadow: </label>
+                    <input id="FarplaneShadow" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Elixir">Elixir: </label>
+                    <input id="Elixir" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Remedy">Remedy: </label>
+                    <input id="Remedy" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Soft">Soft: </label>
+                    <input id="Soft" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Antidote">Antidote: </label>
+                    <input id="Antidote" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="Potion">Potion: </label>
+                    <input id="Potion" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="HiPotion">Hi-Potion: </label>
+                    <input id="HiPotion" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="XPotion">X-Potion: </label>
+                    <input id="XPotion" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="MegaPotion">Mega-Potion: </label>
+                    <input id="MegaPotion" type="number" min="0" value="0"/>
+                  </div>
+                  <div class="input-field col s6 m4 l3 xl2">
+                    <label for="AlBhedPotion">Al-Bhed Potion: </label>
+                    <input id="AlBhedPotion" type="number" min="0" value="0"/>
+                  </div>
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Overdrive:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+                  <div class="row valign-wrapper">
+                    <div class="col s2 m1 l1">
+                      <img src="img/Tidus_Avatar.png" alt="Tidus" title="Tidus" class="circle responsive-img">
+                    </div>
+                    <div class="col s8 m9 l10">
+                      <span class="range-field "><input name="TidusOverdrive" type="range" min="0" max="100" /></span></td>
+                    </div>
+                    <div class="input-field col s2 m2 l1">
+                      <label for="TidusOverdrives">Overdrives: </label>
+                      <input id="TidusOverdrives" name="TidusOverdrives" type="number" min="0" value="0"/>
+                    </div>
+                  </div>
+                  <div class="row valign-wrapper">
+                    <div class="col s2 m1 l1">
+                      <img src="img/Yuna_Avatar.png" alt="Yuna" title="Yuna" class="circle responsive-img">
+                    </div>
+                    <div class="col s10 m11 l11">
+                      <span class="range-field "><input name="YunaOverdrive" type="range" min="0" max="100" /></span></td>
+                    </div>
+                  </div>
+                  <div class="row valign-wrapper">
+                    <div class="col s2 m1 l1">
+                      <img src="img/Rikku_Avatar.png" alt="Rikku" title="Rikku" class="circle responsive-img">
+                    </div>
+                    <div class="col s10 m11 l11">
+                      <span class="range-field "><input name="RikkuOverdrive" type="range" min="0" max="100" /></span></td>
+                    </div>
+                  </div>
+                  <div class="row valign-wrapper">
+                    <div class="col s2 m1 l1">
+                      <img src="img/Auron_Avatar.png" alt="Auron" title="Auron" class="circle responsive-img">
+                    </div>
+                    <div class="col s10 m11 l11">
+                      <span class="range-field "><input name="AuronOverdrive" type="range" min="0" max="100" /></span></td>
+                    </div>
+                  </div>
+                  <div class="row valign-wrapper">
+                    <div class="col s2 m1 l1">
+                      <img src="img/Kimahri_Avatar.png" alt="Kimahri" title="Kimahri" class="circle responsive-img">
+                    </div>
+                    <div class="col s10 m11 l11">
+                      <span class="range-field "><input name="KimahriOverdrive" type="range" min="0" max="100" /></span></td>
+                    </div>
+                  </div>
+                  <div class="row valign-wrapper">
+                    <div class="col s2 m1 l1">
+                      <img src="img/Lulu_Avatar.png" alt="Lulu" title="Lulu" class="circle responsive-img">
+                    </div>
+                    <div class="col s10 m11 l11">
+                      <span class="range-field "><input name="LuluOverdrive" type="range" min="0" max="100" /></span></td>
+                    </div>
+                  </div>
+                  <div class="row valign-wrapper">
+                    <div class="col s2 m1 l1">
+                      <img src="img/Wakka_Avatar.png" alt="Wakka" title="Wakka" class="circle responsive-img">
+                    </div>
+                    <div class="col s10 m11 l11">
+                      <span class="range-field "><input name="WakkaOverdrive" type="range" min="0" max="100" /></span></td>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div id="nemesis" class="col s12"> <!-- Nemesis -->
+              <br>
+              <br>
+              <section>
+                <div class="row">
+                  <div class="col s12 valign-wrapper">
+                    <div class="col s2">
+                      Sleeping Powder
+                    </div>
+                    <div class="col s10">
+                      <span class="range-field "><input name="NemesisSleepingPowder" type="range" min="0" max="30" value="0" /></span></td>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Besaid:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Dingo
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Dingo" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Condor
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Condor" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Water Flan
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="WaterFlan" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Kilika:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Dinonix
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Dinonix" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Killer Bee
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="KillerBee" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Yellow Element
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="YellowElement" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Ragora
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Ragora" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Mi'ihen Highroad:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Mi'ihen Fang
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="MiihenFang" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Ipiria
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Ipiria" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Floating Eye
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="FloatingEye" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      White Element
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="WhiteElement" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Raldo
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Raldo" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Vouivre
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Vouivre" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 xl3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Bomb
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Bomb" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Dual Horn
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="DualHorn" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Mushroom Rock Road:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Raptor
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Raptor" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Gandarewa
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Gandarewa" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Thunder Flan
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="ThunderFlan" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Red Element
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="RedElement" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Lamashtu
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Lamashtu" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Funguar
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Funguar" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Garuda
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Garuda" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Djose Highroad:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Garm
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Garm" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Simurgh
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Simurgh" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Bite Bug
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="BiteBug" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Snow Flan
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="SnowFlan" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Bunyip
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Bunyip" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Basilisk
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Basilisk" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Ochu
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Ochu" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Thunder Plains:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Melusine
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Melusine" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Aerouge
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Aerouge" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Buer
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Buer" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Gold Element
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="GoldElement" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Kusariqqu
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Kusariqqu" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Larva
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Larva" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Iron Giant
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="IronGiant" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Qactuar
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Qactuar" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Macalania:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Snow Wolf
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="SnowWolf" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Iguion
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Iguion" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Wasp
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Wasp" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Evil Eye
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="EvilEye" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Ice Flan
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="IceFlan" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Blue Element
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="BlueElement" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Murussu
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Murussu" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Mafdet
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Mafdet" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Xiphos
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Xiphos" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Chimera
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Chimera" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Bikanel:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Sand Wolf
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="SandWolf" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Alcyone
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Alcyone" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Mushussu
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Mushussu" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Zu
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Zu" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Sand Worm
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="SandWorm" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Cactuar
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Cactuar" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Calm Lands:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Skoll
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Skoll" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Nebiros
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Nebiros" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Flame Flan
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="FlameFlan" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Shred
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Shred" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Anacondaur
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Anacondaur" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Ogre
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Ogre" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Coeurl
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Coeurl" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Chimera Brain
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="ChimeraBrain" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Malboro
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Malboro" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Cavern of the Stolen Fayth:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Yowie
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Yowie" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Imp
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Imp" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Dark Element
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="DarkElement" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Nidhogg
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Nidhogg" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Thorn
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Thorn" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Valaha
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Valaha" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Epaaj
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Epaaj" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Ghost
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Ghost" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Tonberry
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Tonberry" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Mt. Gagazet:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Bandersnatch
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Bandersnatch" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Ahriman
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Ahriman" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Dark Flan
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="DarkFlan" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Grenade
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Grenade" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Grat
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Grat" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Grendel
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Grendel" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Bashura
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Bashura" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Mandragora
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Mandragora" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Behemoth
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Behemoth" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Splasher
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Splasher" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Achelous
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Achelous" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Maelspike
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Maelspike" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Inside Sin:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Exoray
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Exoray" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Wraith
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Wraith" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Gemini A
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="GeminiA" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Gemini B
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="GeminiB" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Demonolith
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Demonolith" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Great Malboro
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="GreatMalboro" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Barbatos
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Barbatos" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Adamantoise
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Adamantoise" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Behemoth King
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="BehemothKing" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <br>
+              <section>
+                <h5>Omega Ruins:</h5>
+                <div class="divider"></div>
+                <br>
+                <div class="row">
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Zaurus
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Zaurus" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Floating Death
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="FloatingDeath" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Black Element
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="BlackElement" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Halma
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Halma" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Puroboros
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Puroboros" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Spirit
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Spirit" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Machea
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Machea" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Master Coeurl
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="MasterCoeurl" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Master Tonberry
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="MasterTonberry" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m6 l3 valign-wrapper">
+                    <div class="col s3 l5 xl4">
+                      Varuna
+                    </div>
+                    <div class="col s9 l7 xl8">
+                      <span class="range-field "><input name="Varuna" type="range" min="0" max="10" value="0" /></span></td>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+            </div>
+
+          </div> <!-- row end -->
+        </div> <!-- container end -->
+      </form>
+    </main>
+
+    <br>
+    <footer class="page-footer transparent">
+      <div class="container">
+        <div class="row center">
+          <button class="btn waves-effect green waves-light tooltipped" type="submit" name="action" id="save" accesskey="s" data-position="top" data-tooltip="ALT+S to save">Save</button>
+          &nbsp
+          <a class="btn-flat waves-effect waves-light modal-trigger" href="#readme">readme</a>
+          <div id="readme" class="modal modal-fixed-footer">
+            <div class="modal-content left-align">
+              <h4 class="hide-on-small-only">Final Fantasy X Speedrun Tracker</h4>
+              <h4 class="hide-on-med-and-up">FFX Speedrun Tracker</h4>
+              <p>This Tracker is intended to help with speedrunning Final Fantasy X</p>
+              <p><strong>Features:</strong><br>
+                <ul class="browser-default">
+                  <li>Any%, No Sphere Grid and Nemesis Categories</li>
+                  <li>Works on Mobile</li>
+                  <li>OBS Browser Source Support</li>
+                  <li>Saving and Resetting entered values</li>
+                </ul>
+              </p>
+              <p><strong>How to use:</strong><br>
+                Choose your Category at the top, then start to update your Items / Encounters / Overdrives as you get or use them.<br>
+                In the case of the No Sphere Grid Encounter-Counter there are some counters that are locked, that is because those areas have a set amount of encounters that should not change. <br>
+                There is also a "Total" counter that automatically calculates the total Encounters.<br>
+                You can use tab / shift+tab to go back and forth and use the arrow keys to increase/decrease values.<br>
+                Make sure to save from time to time in case your Browser or OBS source crashes.</p>
+              <p><strong>OBS Browser Source:</strong><br>
+                Add a "Browser Source" Source to your Scene in OBS, tick the "Local File" checkbox and browse to the file, untick the "Shutdown source when not visible" checkbox.<br>
+                Then use the following Custom CSS: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<code>body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; }</code><br>
+                Adjust the width and height to your needs, the layout should adjust.<br>
+                Right click on the Source and select "Interact" to enter values.
+              </p>
+              <!-- <p><strong>Browser Shortcut:</strong><br>
+                You can add the tracker as a shortcut to your desktop or taskbar with the option to have it as a separate window with a minimal browser UI.<br>
+                How to do that (Chrome): Open the menu of your Browser, click on "more Tools" and then on "create Shortcut..", in the popup check the "Open as window" Checkbox and click "Create". After that you can find the shortcut on your Desktop.
+              </p> -->
+              <p><strong>Known Problems:</strong>
+                <ul class="browser-default">
+                  <li>Overlapping Text or weird line breaks on some resolutions</li>
+                  <li>Calculated Encounter Total sometimes updates delayed when used in a OBS Browser Source</li>
+                  <li>Worse clickability on sliders when used in a OBS Browser Source</li>
+                  <li>Accidental inputs when scrolling the nemesis page on mobile (just scroll on the left)</li>
+                  <li>Internet Explorer is a really bad Browser</li>
+                </ul>
+              </p>
+              <p>Feel free to contact me on Discord if you have Problems, Questions or Ideas on how to improve this tool.<br>
+                 Made by shenef#1269 using MaterializeCSS, <br>thanks to Madhyama for helping with testing and the selection of things to track.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-light btn green">Dismiss</a>
+            </div>
+          </div>
+          &nbsp
+          <button class="btn-flat waves-effect waves-red" type="reset" name="action" id="reset">Reset</button>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript"> /* Encounter Counter */
+      function encounter(category) {
+        var elems = document.getElementsByClassName(category);
+        var myLength = elems.length,
+        total = 0;
+        for (var i = 0; i < myLength; ++i) {
+          total += elems[i].value*1;
+        }
+        document.getElementById(category).value = total;
+        console.log('Updated ' + category + ' Counter');
+      };
+      encounter('anyEncounter');
+      encounter('NSGEncounter');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+    <script type="text/javascript">
+      M.AutoInit();
+    </script>
+    <script type="text/javascript"> /* Save and Reset */
+      const formId = "FFXTracker";
+      const url = location.href;
+      const formIdentifier = `${url} ${formId}`;
+      const saveButton = document.querySelector("#save");
+      const resetButton = document.querySelector("#reset");
+      let form = document.querySelector(`#${formId}`); // select form
+      let formElements = form.elements; // get the elements in the form
+
+      const getFormData = () => {
+        let data = { [formIdentifier]: {} };
+        for (const element of formElements) {
+          if (element.name.length > 0) {
+            data[formIdentifier][element.name] = element.value;
+          }
+        }
+        return data;
+        console.log('Read from previous data');
+      };
+
+      saveButton.onclick = event => {
+        event.preventDefault();
+        data = getFormData();
+        localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
+        M.toast({html: 'Saved to Local Storage!', classes: 'rounded'});
+        console.log('Saved to Local Storage');
+      };
+
+      resetButton.onclick = event => {
+        localStorage.clear();
+        document.getElementById("FFXTracker").reset();
+        M.toast({html: 'Erased all Inputs, reloading...', classes: 'rounded'});
+        setTimeout("location.reload(true);",3000)
+        console.log('Erased Local Storage');
+      };
+
+      const populateForm = () => {
+        if (localStorage.key(formIdentifier)) {
+          const savedData = JSON.parse(localStorage.getItem(formIdentifier));
+          for (const element of formElements) {
+            if (element.name in savedData) {
+              element.value = savedData[element.name];
+            }
+          }
+          M.toast({html: 'Restored Inputs!', classes: 'rounded'});
+          console.log('Populated form with previous data');
+        }
+      };
+      document.onload = populateForm();
+    </script>
+  </body>
+</html>
