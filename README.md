@@ -7,14 +7,14 @@ It is available here: https://shenef.github.io/FFXTracker/
 - Works on Mobile
 - OBS Browser Source Support
 - Saving and Resetting entered values
-- shortcuts for some actions
+- Keyboard shortcuts for some actions
 
 ## How to use:
 Choose your Category at the top, then start to update your Items / Encounters / Overdrives as you get or use them.  
 In the case of the No Sphere Grid Encounter-Counter there are some counters that are locked, that is because those areas have a set amount of encounters that should not change.  
 There is also a "Total" counter that automatically calculates the total Encounters.  
 You can use tab and shift+tab to go back and forth and use the arrow keys to increase/decrease values.  
-There are also shortcuts for some actions like saving or increasing item amounts. Just hover over a field to see the shortcut.
+There are also shortcuts for some actions like saving or increasing item amounts. Just hover over a field to see the shortcut.  
 Make sure to save from time to time in case your Browser or OBS source crashes.
 
 ## OBS Browser Source:
