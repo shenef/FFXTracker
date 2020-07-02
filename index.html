@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="de" xml:lang="de">
   <head>
-    <META NAME="AUTHOR" CONTENT="shenef#1269">
+    <meta name="author" content="shenef#1269">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Description" content="A Tracker for Items, Encounters, Fights etc for Final Fantasy X Speedruns">
     <title>FFX Tracker</title>
     <link rel="shortcut icon" href="icon.webp" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -1528,13 +1529,17 @@
             <div class="modal-content left-align">
               <h4 class="hide-on-small-only">Final Fantasy X Speedrun Tracker</h4>
               <h4 class="hide-on-med-and-up">FFX Speedrun Tracker</h4>
-              <p>This Tracker is intended to help with speedrunning Final Fantasy X</p>
+              <p>
+                This Tracker is intended to help with speedrunning Final Fantasy X<br>
+                available here: https://shenef.github.io/FFXTracker/
+              </p>
               <p><strong>Features:</strong><br>
                 <ul class="browser-default">
                   <li>Any%, No Sphere Grid and Nemesis Categories</li>
                   <li>Works on Mobile</li>
                   <li>OBS Browser Source Support</li>
                   <li>Saving and Resetting entered values</li>
+                  <li>Keyboard shortcuts for some actions</li>
                 </ul>
               </p>
               <p><strong>How to use:</strong><br>
@@ -1543,12 +1548,16 @@
                 There is also a "Total" counter that automatically calculates the total Encounters.<br>
                 You can use tab / shift+tab to go back and forth and use the arrow keys to increase/decrease values.<br>
                 Make sure to save from time to time in case your Browser or OBS source crashes.</p>
-              <p><strong>OBS Browser Source:</strong><br>
-                Add a "Browser Source" Source to your Scene in OBS, tick the "Local File" checkbox and browse to the file, untick the "Shutdown source when not visible" checkbox.<br>
-                Then use the following Custom CSS: <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<code>body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; }</code><br>
-                Adjust the width and height to your needs, the layout should adjust.<br>
-                Right click on the Source and select "Interact" to enter values.
+              <p><strong>OBS Browser Source:</strong>
+                <ol class="browser-default">
+                  <li>Add a "Browser Source" Source to your Scene in OBS</li>
+                  <li>use https://shenef.github.io/FFXTracker/ as the URL</li>
+                  <li>untick the "Shutdown source when not visible" checkbox.</li>
+                  <li>Use the following Custom CSS:<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<code>body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; }</code></li>
+                  <li>Adjust the width and height to your needs, the layout should adjust.</li>
+                  <li>Right click on the Source and select "Interact" to enter values.</li>
+                </ol>
               </p>
               <!-- <p><strong>Browser Shortcut:</strong><br>
                 You can add the tracker as a shortcut to your desktop or taskbar with the option to have it as a separate window with a minimal browser UI.<br>
@@ -1564,7 +1573,8 @@
                 </ul>
               </p>
               <p>Feel free to contact me on Discord if you have Problems, Questions or Ideas on how to improve this tool.<br>
-                 Made by shenef#1269 using MaterializeCSS, <br>thanks to Madhyama for helping with testing and the selection of things to track.
+                 Made by shenef#1269 using MaterializeCSS.<br>
+                 Thanks to Madhyama for helping with testing and the selection of things to track.
               </p>
             </div>
             <div class="modal-footer">
