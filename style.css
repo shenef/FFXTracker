@@ -70,7 +70,7 @@ ul.tabs {
 .modal, .modal .modal-footer {
   background-color: #222;
 }
-ul.browser-default {
+ul.browser-default, ol.browser-default {
   margin-block-start: -1em !important;
   margin-inline-start: -1.2em !important;
 }
