@@ -5,50 +5,29 @@
   "theme_color": "#222",
   "background_color": "#222",
   "display": "standalone",
-  "scope": ".",
   "start_url": "index.html",
+  "scope": ".",
   "icons": [
     {
-      "src": "icon.webp",
-      "type": "image/webp",
+      "src": "img/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "img/icon-192.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "icon-512.webp",
-      "type": "image/webp",
-      "sizes": "512x512"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Any%",
-      "short_name": "Any%",
-      "description": "Open the Any% page directly",
-      "url": "index.html#any",
-      "icons": [
-        {"src": "icon.webp", "type": "image/webp", "sizes": "192x192"},
-        {"src": "icon-512.webp", "type": "image/webp", "sizes": "512x512"}
-      ]
+      "src": "img/icon-144.png",
+      "type": "image/png",
+      "sizes": "144x144",
+      "purpose": "any maskable"
     },
     {
-      "name": "No Sphere Grid",
-      "short_name": "NSG",
-      "description": "Open the No Sphere Grid page directly",
-      "url": "index.html#NSG",
-      "icons": [
-        {"src": "icon.webp", "type": "image/webp", "sizes": "192x192"},
-        {"src": "icon-512.webp", "type": "image/webp", "sizes": "512x512"}
-      ]
-    },
-    {
-      "name": "Nemesis",
-      "short_name": "Nemesis",
-      "description": "Open the Nemesis page directly",
-      "url": "index.html#nemesis",
-      "icons": [
-        {"src": "icon.webp", "type": "image/webp", "sizes": "192x192"},
-        {"src": "icon-512.webp", "type": "image/webp", "sizes": "512x512"}
-      ]
+      "src": "img/icon-64.png",
+      "type": "image/png",
+      "sizes": "64x64"
     }
   ]
 }

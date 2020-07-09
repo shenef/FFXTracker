@@ -7,13 +7,13 @@
     <meta name="theme-color" content="#222"/>
     <title>FFX Tracker</title>
     <link rel="manifest" href="manifest.webmanifest">
-    <link rel="shortcut icon" href="icon.webp">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="apple-touch-icon" href="img/icon-192.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript">
       if('serviceWorker' in navigator) {
-        navigator.serviceWorker
-        .register('js/sw.js')
+        navigator.serviceWorker.register('ServiceWorker.js', {scope: '.'})
         .then(function() {
           console.log("Service Worker registered successfully");
         })
@@ -1611,12 +1611,12 @@
           total += elems[i].value*1;
         }
         document.getElementById(category).value = total;
-        console.log('Updated ' + category + ' Counter');
+        console.log('Updated ' + category + ' counter');
       };
       encounter('anyEncounter');
       encounter('NSGEncounter');
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
       M.AutoInit();
     </script>
