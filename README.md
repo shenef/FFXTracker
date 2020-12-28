@@ -8,6 +8,7 @@ It is available here: https://shenef.github.io/FFXTracker/
 - OBS Browser Source Support
 - Saving and Resetting entered values
 - Keyboard shortcuts for some actions
+- installable on PC and Mobile and available offline
 
 ## How to use:
 Choose your Category at the top, then start to update your Items / Encounters / Overdrives as you get or use them.  
@@ -27,6 +28,15 @@ Make sure to save from time to time in case your Browser or OBS source crashes.
     ```
 1. Adjust the width and height to your needs, the layout should adjust.  
 1. Right click on the Source and select "Interact" to enter values.
+
+## Installing it:
+You can install the tracker as a shortcut to your desktop or taskbar with the option to have it as a separate window with a minimal browser UI. Or in the case of Android, have it as a separate app in your app list.  
+- Chrome on PC:  
+In the far right of your URL bar there should be a install button, just click that and install. Alternatively, open the menu of your Browser, click on "install FFX Speedrun Tracker". After that you can find the shortcut on your Desktop.  
+- Chrome on Android:  
+There should be a small banner saying "Add FFXTracker to Home Screen" on the bottom of the screen when visiting the website.
+
+It might work on other browsers and operating systems but i can't guarantee it.
 
 ## Known Problems:
 - Overlapping Text or weird line breaks on some resolutions
